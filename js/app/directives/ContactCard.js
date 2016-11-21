@@ -16,9 +16,15 @@ function ContactCard() {
 				'<label>Phone:</label>',
 				'{{ phone }}',
 				'<label>Username:</label>',
-				'<span class="username">{{ username }}</span>',
+				'<span class="username">{{ ctrl.makeLowerCase(username) }}</span>',
 			'</div>'
 		].join(''),
+		controller: function($scope) {
+			this.makeLowerCase = function(username) {
+				return username.toLowerCase();
+			};
+		},
+		controllerAs: 'ctrl',
 		restrict: 'E'
 	};
 }
